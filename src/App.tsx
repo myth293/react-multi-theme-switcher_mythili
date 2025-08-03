@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./redux/store";
@@ -18,18 +18,26 @@ const App: React.FC = () => {
   );
   const theme = themes[selectedTheme];
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
+  const closeSidebar = () => setSidebarOpen(false);
+  const isDesktop = window.innerWidth > 768;
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Router basename="/react-multi-theme-switcher_mythili">
-        <Header />
-        {theme.layout === "sidebar" && <Sidebar />}
+        <Header onSidebarToggle={toggleSidebar} isSidebarOpen={sidebarOpen} />
+        {theme.layout === "sidebar" && (
+          <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
+        )}
         <main
           style={{
-            marginLeft: theme.layout === "sidebar" ? 200 : 0,
-            paddingTop: 60,
+            marginLeft: theme.layout === "sidebar" && isDesktop ? 200 : 0,
             minHeight: "100vh",
           }}
+          onClick={closeSidebar}
         >
           <Routes>
             <Route path="/" element={<Home />} />

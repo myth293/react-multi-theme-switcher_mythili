@@ -11,9 +11,14 @@ interface Product {
 
 const Container = styled.div`
   max-width: 900px;
-  margin: 80px auto 40px; /* account for fixed header */
+  margin: 80px auto 40px;
   padding: 20px;
   font-family: ${({ theme }) => theme.font};
+
+  @media (max-width: 480px) {
+    margin: 70px 15px 30px; 
+    padding: 10px;
+  }
 `;
 
 const Title = styled.h1`
@@ -45,6 +50,11 @@ const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; 
+    gap: 15px;
+  }
 `;
 
 const ProductCard = styled.div`

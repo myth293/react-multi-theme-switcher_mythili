@@ -6,6 +6,11 @@ const Container = styled.div`
   margin: 80px auto 40px;
   padding: 20px;
   font-family: ${({ theme }) => theme.font};
+
+  @media (max-width: 480px) {
+    margin: 70px 15px 30px; 
+    padding: 10px;
+  }
 `;
 
 const Title = styled.h1`
