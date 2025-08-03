@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Router>
+      <Router basename="/react-multi-theme-switcher_mythili">
         <Header />
         {theme.layout === "sidebar" && <Sidebar />}
         <main
