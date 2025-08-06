@@ -30,10 +30,10 @@ A simple React + TypeScript application with three distinct themes:
 
 ## Setup
 
-git clone https://github.com/myth293/react-multi-theme-switcher_mythili.git
-cd react-multi-theme-switcher
-npm install
-npm start
+- git clone https://github.com/myth293/react-multi-theme-switcher_mythili.git
+- cd react-multi-theme-switcher
+- npm install
+- npm start
 
 ## Live Deployment Link
 https://myth293.github.io/react-multi-theme-switcher_mythili/
